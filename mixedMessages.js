@@ -15,43 +15,50 @@ const heroes = [
     'Batman',
     'Batfink',
     'Hulk',
-    'captainAmerica',
+    'Captain_America',
     'Thor',
     'Joker',
 ];
 
 const quotes = [
     'My Spidey Sense is ',
-    'with great power, comes great ',
-    'Up Up and ',
-    'hulk ',
-    'my wings are like a shield of ',
-    'surely you can lift my ',
+    'With great power, comes great ',
+    'Kriptonite is my ',
+    'Hulk ',
+    'My wings are like a shield of ',
+    'Surely you can lift my ',
     'I can do this all ',
-    'let me show you a magic ',
-    "im ",
-    "I'll be "
+    'Let me show you a magic ',
+    "I am ",
 ];
 
 const endings = [
     "tinglng.",
     "responsibility.",
-    "Away.",
-    "Smash.",
-    "Steel.",
+    "weakness.",
+    "smash.",
+    "steel.",
     "hammer.",
     "day.",
     "trick.",
     "batman.",
-    "back."
-]
+];
 
+let quote = "";
 
-let quote = quotes[Math.floor((Math.random()*quotes.length))];
+let hero = "";
 
-let hero = heroes[Math.floor((Math.random()*heroes.length))]
+let ending = "";
 
-let ending = endings[Math.floor((Math.random()*endings.length))]
+let newquote = "";
 
+function getQuote() {
+    quote = quotes[Math.floor((Math.random()*quotes.length))];
+    hero = heroes[Math.floor((Math.random()*heroes.length))];
+    ending = endings[Math.floor((Math.random()*endings.length))];
 
-console.log(hero + " says " + quote + ending);
+    newquote = quote + ending;
+
+    document.getElementById('quotelabel').innerHTML = hero +" says;";
+    document.getElementById('heroquote').value = newquote;
+}
