@@ -10,55 +10,74 @@
 
 
 const heroes = [
+    'Batfink',
+    'Batman',
+    'Captain_America',
+    'Hulk',
+    'Joker',
     'SpiderMan',
     'Superman',
-    'Batman',
-    'Batfink',
-    'Hulk',
-    'Captain_America',
     'Thor',
-    'Joker',
+    'Uncle_Ben',  
 ];
 
 const quotes = [
-    'My Spidey Sense is ',
-    'With great power, comes great ',
-    'Kriptonite is my ',
-    'Hulk ',
-    'My wings are like a shield of ',
-    'Surely you can lift my ',
-    'I can do this all ',
-    'Let me show you a magic ',
-    "I am ",
+    'My wings are like a shield of Steel!',
+    "I am Batman!",
+    'I can do this all day!',
+    'Hulk Smash!',
+    'Let me show you a magic trick!',
+    'My Spidey Sense is tingling!',
+    'Kryptonite is my weakness.',
+    'No-one can lift my Hammer!',
+    'With great power, comes great responsibility.',
 ];
 
-const endings = [
-    "tinglng.",
-    "responsibility.",
-    "weakness.",
-    "smash.",
-    "steel.",
-    "hammer.",
-    "day.",
-    "trick.",
-    "batman.",
-];
+let wrongAnswers = [
+    'No!',
+    'Of course Not!',
+    'Dont be stupid!',
+    'Ehh?',
+    'Ha! I dont think so!',
+    'Really?'
+]
 
 let quote = "";
 
 let hero = "";
 
-let ending = "";
+let answer = "";
 
-let newquote = "";
+let wrong = "";
 
 function getQuote() {
-    quote = quotes[Math.floor((Math.random()*quotes.length))];
-    hero = heroes[Math.floor((Math.random()*heroes.length))];
-    ending = endings[Math.floor((Math.random()*endings.length))];
 
-    newquote = quote + ending;
+    let heroIndex = Math.floor((Math.random()*heroes.length));
+    let quoteIndex = Math.floor((Math.random()*quotes.length));
 
-    document.getElementById('quotelabel').innerHTML = hero +" says;";
-    document.getElementById('heroquote').value = newquote;
+    hero = heroes[heroIndex];
+    quote = quotes[quoteIndex];
+
+    if(hero=="Uncle_Ben"){
+        newimage = "images/" + hero + ".jpg";
+    }
+    else{
+        newimage = "images/" + hero + ".png";
+    }
+    
+    document.getElementById('heroimage').src = newimage;
+    document.getElementById('quotelabel').innerHTML = "Did " + hero  +" say?";
+    document.getElementById('heroquote').value = quote;
+
+    if ( heroIndex === quoteIndex){
+        answer = "YES!  Of course he did!";
+    }
+    else{
+        wrong = wrongAnswers[Math.floor((Math.random()*wrongAnswers.length))];
+        answer = wrong;
+    }
+
+
+    document.getElementById('response').innerHTML = answer;
+    
 }

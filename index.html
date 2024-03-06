@@ -8,14 +8,17 @@
     <script src="mixedMessages.js"></script>
 </head>
 
-<body onload="console.log('ran when loaded')"></body>
+<body></body>
     <h1>MIXED UP HEROES</h1>
     <form>
+        <div id="heropic">
+            <img id="heroimage" src="images/batman.png">
+        </div>
+        
         <label id="quotelabel" for="heroquote">Hero Quote:</label>
-        <textarea id="heroquote" name="quote" rows="6" cols="50">
-        Did They Really Say This?
-        </textarea>
-        <button type = 'button' onclick="getQuote()">Get Another Quote</button>
+        <textarea id="heroquote" name="quote" rows="3" cols="50">Did They Really Say This?</textarea>
+        <button id ="getQuoteButton" type = 'button' onclick="getQuote()">Get A Quote</button>
+        <h1 id="response">Author: J Sloss</h1>
     </form>
 </body>
 </html>
